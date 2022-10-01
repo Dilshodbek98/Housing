@@ -5,7 +5,6 @@ import {
   Details,
   Divider,
   Footer,
-  Icons,
   Img,
   Price,
   Review,
@@ -27,7 +26,7 @@ const HouseCard = ({data = {}}) => {
    } = data;
   return (
     <Container>
-      <Img src={attachments && attachments[0].imgPath || noImg} />
+      <Img src={attachments && (attachments[0].imgPath || noImg)} />
       <Content>
         <Title>
           {city} {country} {description}
