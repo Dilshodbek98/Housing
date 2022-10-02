@@ -1,16 +1,8 @@
 import React from "react";
-import Carousel from "../components/Carousel";
-import HouseCard from "../components/HouseCard";
-import SubNavbar from "../components/SubNavbar/subNavbar";
+import HomeComponent from "../components/Home";
 
 const Home = () => {
-  return (
-    <div>
-      <SubNavbar />
-      <Carousel />
-      <HouseCard />
-    </div>
-  );
+  return <HomeComponent />;
 };
 
 export default Home;

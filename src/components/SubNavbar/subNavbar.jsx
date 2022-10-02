@@ -9,7 +9,7 @@ import { uzeReplace } from "../../hooks/useReplace";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 
-const SubNavbar = () => {
+const SubNavbar = (props) => {
   const countryRef = useRef();
   const regionRef = useRef();
   const cityRef = useRef();
@@ -23,7 +23,6 @@ const SubNavbar = () => {
   const navigate = useNavigate();
   const location = useLocation()
   const query = useSearch()
-  console.log(query.get('country'));
 
   const onChange = ({target: {value, name}}) => {
     navigate(`${location?.pathname}${uzeReplace(name, value)}`)  
@@ -55,7 +54,7 @@ const SubNavbar = () => {
 
   return (
     <Main>
-      <Container>
+      <Container padding={props.padding}>
         <div className="input-field">
           <img src={housesIcon} alt="search" />
           <Input
@@ -65,7 +64,7 @@ const SubNavbar = () => {
         </div>
         <Dropdown trigger={'click'} overlay={menu} placement="bottom" arrow>
           <div>
-            <Button width={150} type={"light"}>
+            <Button width={130} type={"light"}>
               <img
                 alt="settings"
                 style={{ marginRight: "8px" }}

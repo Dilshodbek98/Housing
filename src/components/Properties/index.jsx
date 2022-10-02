@@ -15,16 +15,18 @@ const PropertiesComponent = () => {
       .then((res) => setData(res?.data || []));
   }, [search]);
   return (
-    <Container>
-      <Wrapper>
-        <SubNavbar/>
-        <Section>
-          {data.map((value) => {
-            return <HouseCard data={value} key={value.id} />;
-          })}
-        </Section>
-      </Wrapper>
-    </Container>
+    <>
+      <SubNavbar padding/>
+      <Container>
+        <Wrapper>
+          <Section>
+            {data.map((value) => {
+              return <HouseCard data={value} key={value.id} />;
+            })}
+          </Section>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

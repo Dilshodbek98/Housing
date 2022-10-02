@@ -3,20 +3,20 @@ import styled from "styled-components";
 import { ReactComponent as LogoImg } from "../../assets/icons/logo.svg";
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
   width: 100%;
-  `;
+  background-color: ${({ submenu }) => (submenu ? "white" : "#0d263b")};
+`;
 
 export const Main = styled.div`
-  display: flex;
-  background-color: ${({ submenu }) => (submenu ? "white" : "#0d263b")};
-  justify-content: center;
   padding: 0 130px;
   width: 100%;
+  max-width: 1440px;
 `;
 
 export const Wrapper = styled.div`
-  max-width: 1440px;
-  width: 1440px;
+  width: 100%;
   height: 64px;
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Section = styled.div`
-  p{
+  p {
     font-size: 22px;
     font-weight: 700;
     transform: translateY(9px);
@@ -60,12 +60,12 @@ export const SubNavbar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .input-field{
+  .input-field {
     position: relative;
-    img{
+    img {
       position: absolute;
       top: 15px;
       left: 15px;
     }
   }
-`
+`;

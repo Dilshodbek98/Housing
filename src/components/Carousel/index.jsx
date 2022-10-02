@@ -1,61 +1,60 @@
-import { Blur, Container, Content, Main, Slide, Wrapper } from "./style";
 import img1 from "../../assets/images/house1.jpg";
+import img2 from "../../assets/images/house2.jpg";
+import img3 from "../../assets/images/house3.jpg";
+import img4 from "../../assets/images/house4.jpg";
+import React from 'react'
 import Slider from "react-slick";
+import { Container, Slide } from "./style";
 
 const Carousel = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToScroll: 1,
-    arrows: true,
-    appendDots: (dots) => (
-      <div
-        style={{
-          color: "blue",
-          backgroundColor: "transparent",
-
-          transform: "translateY(-40px)",
-        }}
-      >
-        <ul style={{ margin: "0px" }}> {dots} </ul>
-      </div>
-    ),
-  };
   return (
     <Container>
-      <Main>
-        <Wrapper>
-          <Slider {...settings}>
-            <Slide>
-              <img src={img1} alt=''/>
-              <Blur />
-              <Content>
-                <Content.Title>Skyper Pool Partment</Content.Title>
-                <Content.Desc>
-                  112 Glenwood Ave Hyde Park, Boston, MA
-                </Content.Desc>
-                <Content.Price>$5,250/month</Content.Price>
-              </Content>
-            </Slide>
-            <Slide>
-              <img src={img1} alt=''/>
-              <Blur />
-              <Content>
-                <Content.Title>Skyper Pool Partment</Content.Title>
-                <Content.Desc>
-                  112 Glenwood Ave Hyde Park, Boston, MA
-                </Content.Desc>
-                <Content.Price>$5,250/month</Content.Price>
-              </Content>
-            </Slide>
-            <div>
-              <h1>qweqw</h1>
-            </div>
-          </Slider>
-        </Wrapper>
-      </Main>
+      <Slider
+        slidesToScroll={1}
+        slidesToShow={1}
+        dots={true}
+        arrows={true}
+        autoplay={true}
+      >
+        <Slide>
+          <div className="content">
+            <h1>Skyper Pool Partment</h1>
+            <p>112 Glenwood Ave Hyde Park, Boston, MA</p>
+            <h2>$5,250/month</h2>
+          </div>
+          <img src={img1} alt="" />
+          <div className="blur"></div>
+        </Slide>
+        <Slide>
+          <div className="content">
+            <h1>New Apartment Nice Wiew</h1>
+            <p>45 Glenwood Ave Hyde Park, La, MA</p>
+            <h2>$4,250/month</h2>
+          </div>
+          <img src={img2} alt="" />
+          <div className="blur"></div>
+        </Slide>
+        <Slide>
+          <div className="content">
+            <h1>Skyper Pool Partment</h1>
+            <p>52 Glenwood Ave Hyde Park, NY, MA</p>
+            <h2>$5,250/month</h2>
+          </div>
+          <img src={img3} alt="" />
+          <div className="blur"></div>
+        </Slide>
+        <Slide>
+          <div className="content">
+            <h1>New Apartment Nice Wiew</h1>
+            <p>74 Glenwood Ave Hyde Park, LA</p>
+            <h2>$8,250/month</h2>
+          </div>
+          <img src={img4} alt="" />
+          <div className="blur"></div>
+        </Slide>
+      </Slider>
     </Container>
   );
-};
+}
 
-export default Carousel;
+export default Carousel

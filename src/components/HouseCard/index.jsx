@@ -22,7 +22,7 @@ const HouseCard = ({data = {}}) => {
     houseDetails,
     price,
     salePrice,
-    attachments,
+    attachments,  
    } = data;
   return (
     <Container>

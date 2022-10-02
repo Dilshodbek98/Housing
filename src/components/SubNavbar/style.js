@@ -1,21 +1,22 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  display: flex;
-  background-color: white;
-  justify-content: center;
   width: 100%;
-`;
+
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  `;
 
 export const Container = styled.div`
   height: 64px;
-  background-color: white;
+  width: 100%;
   max-width: 1440px;
-  width: 1440px;
-  gap: 20px;
+  padding: ${({padding}) => padding ? '0 130px' : '0'};
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   .input-field{
     position: relative;
     width: 100%;
