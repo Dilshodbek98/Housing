@@ -17,7 +17,6 @@ const SubNavbar = (props) => {
   const cityRef = useRef();
   const ziCodeRef = useRef();
   const roomsRef = useRef();
-  const sortRef = useRef();
   const minPirceRef = useRef();
   const maxPirceRef = useRef();
 
