@@ -42,6 +42,11 @@ export const MenuWrapper = styled.div`
     font-weight: 600;
     margin-bottom: 10px;
   }
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+    height: 44px;
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const Section = styled.div`

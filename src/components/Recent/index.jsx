@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
-import CategoryCard from "../CategoryCard";
+import HouseCard from "../HouseCard";
 import { Container, Main, Wrapper } from "./style";
 
-const Category = () => {
+const Recent = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("https://houzing-app.herokuapp.com/api/v1/categories/list")
+    fetch("https://houzing-app.herokuapp.com/api/v1/houses/list")
       .then((response) => response.json())
       .then((response) => setData(response?.data || []));
   }, []);
@@ -19,7 +19,7 @@ const Category = () => {
       <Wrapper>
         <Container>
           <div className="content">
-            <h1>Category</h1>
+            <h1>Recent Properties for Rent</h1>
             <p>
               Nulla quis curabitur velit volutpat auctor bibendum consectetur
               sit.
@@ -28,7 +28,7 @@ const Category = () => {
           <Slider slidesToShow={3} arrows={true} dots={true} autoplay={true}>
             {data.map((value) => {
               return (
-                <CategoryCard
+                <HouseCard
                   data={value}
                   key={value.id}
                   onClick={() =>
@@ -44,4 +44,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Recent;

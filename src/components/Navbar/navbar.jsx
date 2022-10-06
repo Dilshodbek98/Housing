@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { navbarData } from "../../utils/navbarData";
+import Footer from "../Footer";
 import { Button } from "../Generics";
 import { Section, Wrapper, Container, Logo, Navlink, Main } from "./style";
 
@@ -39,6 +40,7 @@ const Navbar = () => {
         </Main>
       </Container>
       <Outlet />
+      <Footer/>
     </>
   );
 };
