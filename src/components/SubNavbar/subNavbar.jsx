@@ -32,13 +32,15 @@ const SubNavbar = (props) => {
       .then((response) => {
         setData(response?.data || []);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    let ress = data.filter(item => {
+    let ress = data.filter((item) => {
       return item.id === Number(query.get("categoty_id"));
-    })
+    });
     ress[0]?.name && setDefValue(ress[0]?.name);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, location.search]);
 
   const onChange = ({ target: { value, name } }) => {
