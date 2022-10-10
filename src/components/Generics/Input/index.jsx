@@ -3,12 +3,22 @@ import { Inp } from "./style";
 
 const Input = forwardRef(
   (
-    { width, type, value, defaultValue, onChange, placeholder, name, icon },
+    {
+      margin,
+      width,
+      type,
+      value,
+      defaultValue,
+      onChange,
+      placeholder,
+      name,
+      icon,
+    },
     ref
   ) => {
     return (
       <Inp
-      ref={ref}
+        ref={ref}
         icon={icon}
         width={width}
         type={type}
@@ -17,6 +27,7 @@ const Input = forwardRef(
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        margin={margin}
       />
     );
   }

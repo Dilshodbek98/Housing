@@ -29,12 +29,20 @@ const getType = ({type}) => {
   }
 }
 
+const getWidth = ({width}) => {
+  if(!width) return '130px';
+  else if(`${width}`.includes('%')) return '100%'
+  else return `${width}px`
+
+}
+
 export const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 2px;
-  width: ${({ width }) => (width ? `${width}px` : "130px")};
+  width: ${getWidth};
+  min-width:130px;
   height: ${({ height }) => (height ? `${height}px` : "44px")};
   cursor: pointer;
   font-size: 14px;
