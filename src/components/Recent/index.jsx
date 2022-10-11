@@ -32,7 +32,7 @@ const Recent = () => {
                   data={value}
                   key={value.id}
                   onClick={() =>
-                    navigate(`/properties?categoty_id=${value.id}`)
+                    navigate(`/houseitem/${value.id}`)
                   }
                 />
               );

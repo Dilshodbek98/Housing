@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, Section, Container, Wrapper, Icon } from "./style";
 
 const Footer = () => {
+  const navigate = useNavigate()
   return (
     <Container>
       <Wrapper>
@@ -54,7 +56,7 @@ const Footer = () => {
         <div className="divider"></div>
         <Section>
           <div className="sub-footer">
-            <div className="logo">
+            <div className="logo" onClick={() => navigate('/home')}>
               <Icon.Logo />
               <h1>Houzing</h1>
             </div>

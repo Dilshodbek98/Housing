@@ -15,6 +15,7 @@ export const Container = styled.div`
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   margin-bottom: 30px;
+  cursor: pointer;
 `;
 
 export const Img = styled.img`

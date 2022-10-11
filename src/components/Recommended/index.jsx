@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import HouseCard from "../HouseCard";
 import { Container, Main, Wrapper } from "./style";
 
-const Recommended = () => {
+const Recommended = ({padnot}) => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -16,7 +16,7 @@ const Recommended = () => {
   }, []);
   return (
     <Main>
-      <Wrapper>
+      <Wrapper padnot={padnot}>
         <Container>
           <div className="content">
             <h1>Recommended</h1>
@@ -31,9 +31,7 @@ const Recommended = () => {
                 <HouseCard
                   data={value}
                   key={value.id}
-                  onClick={() =>
-                    navigate(`/properties?categoty_id=${value.id}`)
-                  }
+                  onClick={() => navigate(`/houseitem/${value.id}`)}
                 />
               );
             })}

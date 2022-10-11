@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import HouseCard from "../HouseCard";
 import SubNavbar from "../SubNavbar/subNavbar";
 import { Container, Section, Wrapper } from "./style";
@@ -7,6 +7,7 @@ const { REACT_APP_BASE_URL: url } = process.env;
 
 const PropertiesComponent = () => {
   const [data, setData] = useState([]);
+  const navigate = useNavigate()
   const {search}
    = useLocation()
   useEffect(() => {
@@ -21,7 +22,7 @@ const PropertiesComponent = () => {
         <Wrapper>
           <Section>
             {data.map((value) => {
-              return <HouseCard data={value} key={value.id} />;
+              return <HouseCard data={value} key={value.id} onClick={() => navigate(`/houseitem/${value.id}`)} />;
             })}
           </Section>
         </Wrapper>

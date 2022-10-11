@@ -4,12 +4,13 @@ const Main = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  cursor: pointer;
 `
 const Wrapper = styled.div`
   width: 100%;
   max-width: 1440px;
-  padding: 0 130px;
-`
+  padding: ${({ padnot }) => (padnot ? "0px" : "0 130px")};
+`;
 
 const Container = styled.div`
   width: 100%;

@@ -14,12 +14,11 @@ export const Wrapper = styled.div`
 `;
 export const Section = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
   @media (max-width: 1400px) {
-    justify-content: center;
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 19px;
   }
 `;

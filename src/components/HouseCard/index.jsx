@@ -13,7 +13,7 @@ import {
 } from "./style";
 import noImg from "../../assets/images/noImg.jpg";
 
-const HouseCard = ({data = {}}) => {
+const HouseCard = ({data = {}, onClick}) => {
   const {
     city,
     country,
@@ -25,7 +25,7 @@ const HouseCard = ({data = {}}) => {
     attachments,  
    } = data;
   return (
-    <Container>
+    <Container onClick={onClick}>
       <Img src={attachments && (attachments[0]?.imgPath || noImg)} />
       <Content>
         <Title>

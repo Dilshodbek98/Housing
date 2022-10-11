@@ -1,4 +1,5 @@
 import React from "react";
+import HouseItem from "../components/HouseItem";
 import { useUniqueId } from "../hooks/useId";
 import SignIn from "../pages/SignIn";
 const Home = React.lazy(() => import("../pages/Home"));
@@ -42,6 +43,14 @@ export const navbarData = [
     title: "Sign Up",
     path: "/signup",
     element: <h1>Sign up page</h1>,
+    private: false,
+    hidden: true,
+  },
+  {
+    id: useUniqueId,
+    title: "House Item",
+    path: "/houseitem/:id",
+    element: <HouseItem/>,
     private: false,
     hidden: true,
   },

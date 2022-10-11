@@ -35,6 +35,7 @@ const Section = styled.div`
       color: white;
     }
     .logo{
+      cursor: pointer;
       display: flex;
       margin-top: 12px;
       gap: 11px;
