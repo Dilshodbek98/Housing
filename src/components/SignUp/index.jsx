@@ -6,7 +6,7 @@ import { Button, Input } from "../Generics";
 import { Container, Main } from "./style";
 const SignUpComponent = () => {
   const [body, setBody] = useState();
-  const navigate = useNavigate();
+    const navigate = useNavigate();
   const onchange = ({ target: { value, placeholder } }) => {
     setBody({
       ...body,

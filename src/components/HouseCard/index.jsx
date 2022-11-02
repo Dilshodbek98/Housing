@@ -31,7 +31,7 @@ const HouseCard = ({ data = {}, onClick }) => {
     favorite,
   } = data;
   const { REACT_APP_BASE_URL: url } = process.env;
-  const [state, dispatch] = useContext(PropertiesContext);
+  const [state, ] = useContext(PropertiesContext);
 
   const mutateDAta = async () => {
     let res = await fetch(

@@ -1,6 +1,6 @@
 import { Dropdown } from "antd";
 import React from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import {  Outlet, useNavigate } from "react-router-dom";
 import { navbarData } from "../../utils/navbarData";
 import Footer from "../Footer";
 import { Button } from "../Generics";

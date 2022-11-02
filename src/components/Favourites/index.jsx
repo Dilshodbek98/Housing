@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useContext } from "react";
 import { useQuery } from "react-query";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PropertiesContext } from "../../context/properties";
 import HouseCard from "../HouseCard";
 import SubNavbar from "../SubNavbar/subNavbar";
 import { Container, Section, Wrapper } from "./style";
-const { REACT_APP_BASE_URL: url } = process.env;
 
 const Favourites = () => {
-  const [state, dispatch] = useContext(PropertiesContext)
+  const { REACT_APP_BASE_URL: url } = process.env;
+  const [, dispatch] = useContext(PropertiesContext);
   const navigate = useNavigate();
   const fetchData = async () => {
     let res = await fetch(`${url}/houses/getAll/favouriteList`, {

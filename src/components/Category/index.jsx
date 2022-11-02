@@ -14,6 +14,7 @@ const Category = () => {
     fetch(`${REACT_APP_BASE_URL}/categories/list`)
       .then((response) => response.json())
       .then((response) => setData(response?.data || []));
+    // eslint-disable-next-line
   }, []);
   return (
     <Main>
