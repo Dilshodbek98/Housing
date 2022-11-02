@@ -107,13 +107,13 @@ export const Review = styled.div`
   .love {
     width: 35px;
     height: 35px;
-    background-color: #f6f8f9;
+    background-color: ${({ fav }) => (fav ? "red" : "#f6f8f9")};
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    :active{
+    :active {
       transform: scale(0.9);
     }
   }
@@ -129,6 +129,6 @@ Review.Resize = styled(resize)`
 
 Review.Love = styled(love)`
   & path {
-    fill: #696969;
+    fill: ${({ fav }) => (fav ? "white" : "#696969")};
   }
 `;

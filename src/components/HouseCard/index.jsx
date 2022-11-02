@@ -12,8 +12,12 @@ import {
   Title,
 } from "./style";
 import noImg from "../../assets/images/noImg.jpg";
+import { message } from "antd";
+import { useContext } from "react";
+import { PropertiesContext } from "../../context/properties";
+import { useMutation } from "react-query";
 
-const HouseCard = ({data = {}, onClick}) => {
+const HouseCard = ({ data = {}, onClick }) => {
   const {
     city,
     country,
@@ -21,9 +25,40 @@ const HouseCard = ({data = {}, onClick}) => {
     address,
     houseDetails,
     price,
+    id,
     salePrice,
-    attachments,  
-   } = data;
+    attachments,
+    favorite,
+  } = data;
+  const { REACT_APP_BASE_URL: url } = process.env;
+  const [state, dispatch] = useContext(PropertiesContext);
+
+  const mutateDAta = async () => {
+    let res = await fetch(
+      `${url}/houses/addFavourite/${id}?favourite=${!favorite}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+    return res.json();
+  };
+  const { mutate } = useMutation(mutateDAta, {
+    onSuccess: state.refetch,
+  });
+  const save = (e) => {
+    e.stopPropagation();
+    if (favorite) {
+      mutate();
+      message.warn("Removed from Favourites");
+    } else {
+      mutate();
+      message.success("Added to Favourites");
+    }
+  };
+
   return (
     <Container onClick={onClick}>
       <Img src={attachments && (attachments[0]?.imgPath || noImg)} />
@@ -31,7 +66,9 @@ const HouseCard = ({data = {}, onClick}) => {
         <Title>
           {city} {country} {description}
         </Title>
-        <Text>{address}, rooms: {houseDetails?.room}</Text>
+        <Text>
+          {address}, rooms: {houseDetails?.room}
+        </Text>
         <Details marbot>
           <Details.Item>
             <Details.Bed />
@@ -59,9 +96,9 @@ const HouseCard = ({data = {}, onClick}) => {
           </del>
           <Title footer>${price || 0} per/month</Title>
         </Price>
-        <Review>
+        <Review fav={favorite}>
           <Review.Resize />
-          <div className="love">
+          <div className="love" onClick={save}>
             <Review.Love />
           </div>
         </Review>

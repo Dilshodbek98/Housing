@@ -9,8 +9,9 @@ import { Container, Main, Wrapper } from "./style";
 const Category = () => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+  const { REACT_APP_BASE_URL } = process.env;
   useEffect(() => {
-    fetch("https://houzing-app.herokuapp.com/api/v1/categories/list")
+    fetch(`${REACT_APP_BASE_URL}/categories/list`)
       .then((response) => response.json())
       .then((response) => setData(response?.data || []));
   }, []);

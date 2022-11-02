@@ -1,12 +1,12 @@
-// import React from 'react'
-// import PropertiesProvider from './properties';
+import React from 'react'
+import PropertiesProvider from './properties';
 
-// const RootContext = ({children}) => {
-//   return (
-//     <PropertiesProvider>
-//       {children}
-//     </PropertiesProvider>
-//   )
-// }
+const RootContext = ({children}) => {
+  return (
+    <PropertiesProvider>
+      {children}
+    </PropertiesProvider>
+  )
+}
 
-// export default RootContext;
+export default RootContext;

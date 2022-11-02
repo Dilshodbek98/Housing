@@ -6,11 +6,12 @@ import Slider from "react-slick";
 import HouseCard from "../HouseCard";
 import { Container, Main, Wrapper } from "./style";
 
-const Recommended = ({padnot}) => {
+const Recommended = ({ padnot }) => {
   const [data, setData] = useState([]);
+  const {REACT_APP_BASE_URL} = process.env;
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("https://houzing-app.herokuapp.com/api/v1/houses/list")
+    fetch(`${REACT_APP_BASE_URL}/houses/list`)
       .then((response) => response.json())
       .then((response) => setData(response?.data || []));
   }, []);

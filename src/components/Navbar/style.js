@@ -69,3 +69,19 @@ export const SubNavbar = styled.div`
     }
   }
 `;
+
+export const Modal =  styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+  gap: 16px;
+  .link{
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+
+`

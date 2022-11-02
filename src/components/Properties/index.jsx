@@ -7,9 +7,8 @@ const { REACT_APP_BASE_URL: url } = process.env;
 
 const PropertiesComponent = () => {
   const [data, setData] = useState([]);
-  const navigate = useNavigate()
-  const {search}
-   = useLocation()
+  const navigate = useNavigate();
+  const { search } = useLocation();
   useEffect(() => {
     fetch(`${url}/houses/list${search}`)
       .then((res) => res.json())
@@ -17,12 +16,18 @@ const PropertiesComponent = () => {
   }, [search]);
   return (
     <>
-      <SubNavbar padding/>
+      <SubNavbar padding />
       <Container>
         <Wrapper>
           <Section>
             {data.map((value) => {
-              return <HouseCard data={value} key={value.id} onClick={() => navigate(`/houseitem/${value.id}`)} />;
+              return (
+                <HouseCard
+                  data={value}
+                  key={value.id}
+                  onClick={() => navigate(`/houseitem/${value.id}`)}
+                />
+              );
             })}
           </Section>
         </Wrapper>

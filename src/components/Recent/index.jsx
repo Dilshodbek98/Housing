@@ -7,10 +7,11 @@ import HouseCard from "../HouseCard";
 import { Container, Main, Wrapper } from "./style";
 
 const Recent = () => {
+  const { REACT_APP_BASE_URL } = process.env;
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("https://houzing-app.herokuapp.com/api/v1/houses/list")
+    fetch(`${REACT_APP_BASE_URL}/houses/list`)
       .then((response) => response.json())
       .then((response) => setData(response?.data || []));
   }, []);
@@ -31,9 +32,7 @@ const Recent = () => {
                 <HouseCard
                   data={value}
                   key={value.id}
-                  onClick={() =>
-                    navigate(`/houseitem/${value.id}`)
-                  }
+                  onClick={() => navigate(`/houseitem/${value.id}`)}
                 />
               );
             })}

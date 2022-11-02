@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import noprofile from '../../assets/images/noprofile.jpg'
+import noprofile from "../../assets/images/noprofile.jpg";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   Container,
@@ -13,7 +13,7 @@ import {
   UserBox,
   Wrapper,
   Details,
-  Text
+  Text,
 } from "./style";
 import Input from "../Generics/Input";
 import { Checkbox } from "antd";
@@ -23,20 +23,20 @@ import Recommended from "../Recommended";
 const HouseItem = () => {
   const params = useParams();
   const [item, setItem] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { REACT_APP_BASE_URL } = process.env;
   useEffect(() => {
-    fetch(`https://houzing-app.herokuapp.com/api/v1/houses/id/${params?.id}`)
+    fetch(`${REACT_APP_BASE_URL}/houses/id/${params?.id}`)
       .then((res) => res.json())
       .then((res) => setItem(res.data));
     // eslint-disable-next-line
   }, [params.id]);
 
-  console.log(item);
   return (
     <Container>
       <Wrapper>
         <Section>
-          <img src={item?.attachments[0]?.imgPath} alt='main=img'/>
+          <img src={item?.attachments[0]?.imgPath} alt="main=img" />
           <Main>
             <Content>
               <TitleBox>
@@ -168,7 +168,7 @@ const HouseItem = () => {
             </Content>
             <UserBox>
               <Right>
-                <img src={noprofile} alt="noimg"/>
+                <img src={noprofile} alt="noimg" />
                 <Left>
                   <h2>{item?.user?.firstname}</h2>
                   <p>(123)456-7890</p>

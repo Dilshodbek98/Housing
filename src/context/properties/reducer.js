@@ -1,10 +1,8 @@
-// export const reducer = (state, action) => {
-//   switch(action.type) {
-//     case 'plus':
-//       return state + 1;
-//     case 'minus':
-//       return state - 1;
-//     default:
-//       return state;
-//   }
-// }
+export const reducer = (state, action) => {
+  switch(action.type) {
+    case 'refetch':
+      return {...state, refetch: action.payload};
+    default:
+      return state;
+  }
+}

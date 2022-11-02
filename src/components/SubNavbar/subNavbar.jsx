@@ -25,9 +25,9 @@ const SubNavbar = (props) => {
   const query = useSearch();
   const [data, setData] = useState([]);
   const [defValue, setDefValue] = useState("Sort by");
-
+  const { REACT_APP_BASE_URL } = process.env;
   useEffect(() => {
-    fetch("https://houzing-app.herokuapp.com/api/v1/categories/list")
+    fetch(`${REACT_APP_BASE_URL}/categories/list`)
       .then((response) => response.json())
       .then((response) => {
         setData(response?.data || []);

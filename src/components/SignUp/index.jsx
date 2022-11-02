@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input } from "../Generics";
 import { Container, Main } from "./style";
-const SignInComponent = () => {
+const SignUpComponent = () => {
   const [body, setBody] = useState();
   const navigate = useNavigate();
   const onchange = ({ target: { value, placeholder } }) => {
@@ -16,7 +16,7 @@ const SignInComponent = () => {
 
   localStorage.setItem("authenticationToken", "");
   const onSubmit = () => {
-    fetch("https://houzing-app.herokuapp.com/api/public/auth/login", {
+    fetch("https://houzing-app.herokuapp.com/api/public/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,27 +25,28 @@ const SignInComponent = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.authenticationToken) {
-          console.log(res);
-          localStorage.setItem("token", res.authenticationToken);
-          navigate("/home");
-          message.success("Welcome to Houzing");
-        } else {
-          console.log(res);
-          message.error("Login or password wrong");
-        }
-      })
-      .catch((err) => {
-        message.error("Login or password wrong");
-      });
+        message.error("Email is already taken");
+      }).catch(err => message.success("Verification code was sent to your email."))
   };
   return (
     <Main>
       <Container>
-        <h2>Sign in</h2>
+        <h2>Sign up</h2>
         <Input
           onChange={onchange}
           placeholder="email"
+          type="email"
+          margin="0 0 20px 0"
+        />
+        <Input
+          onChange={onchange}
+          placeholder="firstname"
+          type="email"
+          margin="0 0 20px 0"
+        />
+        <Input
+          onChange={onchange}
+          placeholder="lastname"
           type="email"
           margin="0 0 20px 0"
         />
@@ -59,11 +60,11 @@ const SignInComponent = () => {
           Login
         </Button>
         <h3>
-          You don't have an account ? <span onClick={() => navigate('/signup')}>Register</span>
+          You have an account ? <span onClick={() => navigate('/signin')}>Sign In</span>
         </h3>
       </Container>
     </Main>
   );
 };
 
-export default SignInComponent;
+export default SignUpComponent;
